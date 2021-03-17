@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8a2d1557-aa84-4ed6-9a87-2516b3d7b67f" >
+		<http:listener-connection host="0.0.0.0" port="8085" />
+	</http:listener-config>
+	<flow name="demooneFlow" doc:id="f341347b-4b92-48cd-8cba-183897f381cc" >
+		<http:listener doc:name="Listener" doc:id="155aa571-a8dd-4de5-82ae-dc0c653a0baf" config-ref="HTTP_Listener_config" path="/getHello" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="1c18ea5c-bcb5-4efd-b39d-cc16f6ef9159" message="Hello"/>
+	</flow>
+</mule>
